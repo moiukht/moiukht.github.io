@@ -1,0 +1,456 @@
+/* Body and Layout Setup */
+html, body {
+    height: 100%; /* Ensure the body takes up the full height of the viewport */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+}
+
+body {
+  height: 100vh;
+  background:#fff;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  
+}
+/* Navbar Styling */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000; /* Black background for navbar */
+    z-index: 1000; /* Ensure navbar stays on top */
+    padding: 15px 0; /* Add padding for better spacing */
+    display: flex; /* Use flexbox for navbar items */
+    justify-content: space-between; /* Space out the items in the navbar */
+    align-items: center; /* Center the navbar items vertically */
+}
+
+/* Content Wrapper */
+main {
+    margin-top: 400px; /* Ensure main content starts below the fixed navbar */
+    padding: 120px; /* Optional: Add some padding to the main content */
+    flex-grow: 1; /* Allow the content to take up the remaining space */
+    background-color: transparent; /* Light background for content */
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Optional: Additional Styling */
+header {
+    background-color: #db1d1d;
+    color: white;
+    padding: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav a:hover {
+    color: #3998b8; /* Light blue hover effect */
+}
+
+footer {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+/* Default styles (for smaller screens) */
+
+nav.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    z-index: 1000;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.navbar-brand {
+    font-size: 24px; /* Default font size for smaller screens */
+}
+
+/* Larger screens (desktops) */
+@media (min-width: 992px) {
+    .navbar {
+        padding: 20px 0; /* Thicker navbar on PC */
+    }
+
+    .navbar-brand {
+        font-size: 36px; /* Larger name only on desktop */
+    }
+}
+/* Shrunk navbar style */
+.navbar.shrink {
+    padding: 10px 0; /* Reduce padding to make it look smaller */
+    background-color: rgba(0, 0, 0, 0.8); /* Optional: adjust background transparency */
+}
+
+    .shining-text {
+      font-size: 1em;
+      font-weight: normal;
+      font-style: italic;
+      color: #292828;
+      letter-spacing: 1.5px;
+      position: relative;
+      text-align: left;
+      margin-bottom:0px;
+      margin-top: 5px;
+      display: inline-block;
+      overflow: hidden;
+        /* Add text stroke */
+ 
+
+    }
+
+    .shining-text::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+      animation: shineEffect 3s infinite ease-in-out;
+      overflow: hidden;
+    }
+
+    .shining-border {
+      padding: 15px 30px;
+      font-size: 0em;
+      font-weight: bold;
+      color: #fff;
+      text-align: right;
+      border: 3px solid #fff;
+      border-radius: 10px;
+      margin-top: 10px;
+      overflow: hidden;
+
+    }
+
+
+    /* Animation for shine effect */
+    @keyframes shineEffect {
+      0% {
+        left: -100%;
+      }
+      50% {
+        left: 100%;
+      }
+      100% {
+        left: 100%;
+      }
+    }
+    .research-interest-label {
+        font-size: 1.5em;
+        margin-left: 0px; 
+        margin-top: 0px;
+        color: #000000;
+        text-align: left;
+      }
+
+    .limelight-regular {
+        font-family: "Limelight", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .dm-serif-text-regular {
+        font-family: "DM Serif Text", serif;
+        font-weight: 400;
+        font-style: normal;
+        letter-spacing: 0.2cap;
+        margin-left: 20px;
+      }
+      
+      .dm-serif-text-regular-italic {
+        font-family: "DM Serif Text", serif;
+        font-weight: 400;
+        font-style: italic;
+      }
+
+      #resume {
+        margin: 20px; /* Apply margin to this specific section */
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+
+    /* Venn Diagram Styles */
+    /* .venn-container {
+        position: relative;
+        width: 100%;
+        max-width: 450px;
+        height: 320px;
+        margin: 0 auto;
+    } */
+
+    .venn-container {
+    position: relative;
+    width: 100%;
+    max-width: 440px; /* smaller than before */
+    height: 310px; /* slightly adjusted */
+    margin: 0 auto;
+}
+
+
+    .circle {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.8;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        font-weight: bold;
+        font-size: 13px;
+        text-align:start;
+        padding: 15px;
+        box-sizing: border-box;
+        text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+        width: 160px;
+        height: 160px;
+    }
+.circle:hover {
+    opacity: 1;
+    z-index: 999;
+}
+
+
+
+    /* Venn diagram positioning */
+
+        .ml {
+        background: linear-gradient(135deg, #ff9d13, #efa78f);
+        bottom: 50px;
+        right: 80px;
+        animation: float4 2.5s ease-in-out infinite;
+        z-index: 5;
+    }
+
+   
+
+    .ai {
+        background: linear-gradient(135deg, #9affb1, #066f5a);
+        top: 30px;
+        right: 80px;
+        animation: float2 1.5s ease-in-out infinite;
+        z-index: 5;
+    }
+
+    .hci {
+        background: linear-gradient(135deg, #05f8eb, #463b90);
+        bottom: 50px;
+        left: 80px;
+        animation: float3 2.1s ease-in-out infinite;
+        z-index: 5;
+    }
+ .nlp {
+        background: linear-gradient(135deg, #fbbaba, #ff0048);
+        top: 30px;
+        left: 80px;
+        animation: float1 2.2s ease-in-out infinite;
+        z-index: 5;
+    }
+
+    /* Floating animations for each circle */
+    @keyframes float1 {
+        0%, 100% {
+            transform: translateY(0px) translateX(0px);
+        }
+        25% {
+            transform: translateY(-8px) translateX(3px);
+        }
+        50% {
+            transform: translateY(-5px) translateX(-2px);
+        }
+        75% {
+            transform: translateY(-10px) translateX(1px);
+        }
+    }
+
+    @keyframes float2 {
+        0%, 100% {
+            transform: translateY(0px) translateX(0px);
+        }
+        25% {
+            transform: translateY(-6px) translateX(-3px);
+        }
+        50% {
+            transform: translateY(-12px) translateX(2px);
+        }
+        75% {
+            transform: translateY(-4px) translateX(-1px);
+        }
+    }
+
+    @keyframes float3 {
+        0%, 100% {
+            transform: translateY(0px) translateX(0px);
+        }
+        25% {
+            transform: translateY(-7px) translateX(2px);
+        }
+        50% {
+            transform: translateY(-3px) translateX(-4px);
+        }
+        75% {
+            transform: translateY(-9px) translateX(1px);
+        }
+    }
+
+    @keyframes float4 {
+        0%, 100% {
+            transform: translateY(0px) translateX(0px);
+        }
+        25% {
+            transform: translateY(-5px) translateX(-2px);
+        }
+        50% {
+            transform: translateY(-8px) translateX(3px);
+        }
+        75% {
+            transform: translateY(-6px) translateX(-1px);
+        }
+    }
+
+    @keyframes seesaw {
+  0% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+  100% { transform: rotate(-5deg); }
+}
+
+.seesaw {
+  display: inline-block;
+  animation: seesaw 2.5s ease-in-out infinite;
+}
+
+
+    .intersection-label {
+        position: absolute;
+        color: #333;
+        font-weight: bold;
+        font-size: 10px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 3px 6px;
+        border-radius: 8px;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        z-index: 15;
+    }
+
+    .center-intersection {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .nlp-ai {
+        top: 32%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .nlp-hci {
+        top: 62%;
+        left: 32%;
+        transform: translate(-50%, -50%);
+    }
+
+    .ai-ml {
+        top: 62%;
+        right: 32%;
+        transform: translate(50%, -50%);
+    }
+
+    .hci-ml {
+        bottom: 32%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+    }
+
+    .nlp-ml {
+        top: 50%;
+        left: 25%;
+        transform: translate(-50%, -50%);
+    }
+
+    .ai-hci {
+        top: 50%;
+        right: 25%;
+        transform: translate(50%, -50%);
+    }
+
+    .venn-container:hover .intersection-label {
+        opacity: 0.5;
+    }
+
+    /* Research interests section styling */
+    .research-interests-section {
+        margin-top: 30px;
+        padding: 0;
+    }
+
+    .research-interest-label {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #000000;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .venn-container {
+            height: 280px;
+            max-width: 350px;
+        }
+        
+        .circle {
+            font-size: 11px;
+            padding: 12px;
+            width: 140px;
+            height: 140px;
+        }
+        
+
+
+.ai {
+    top: 30px;
+    left: 145px;
+}
+
+.hci {
+    top: 95px;
+    left: 95px;
+}
+
+.ml {
+    top: 95px;
+    left: 145px;
+}
+.nlp {
+    top: 30px;
+    left: 95px;
+}
+
+    }

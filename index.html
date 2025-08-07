@@ -1,266 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tahsina Moiukh</title>
   <link rel="icon" href="favicon4.png" type="image/png">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Limelight&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-      background-color: #ffffff;
-      color: #000000;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+<!-- Custom CSS -->
+  <link rel="stylesheet" href="./styles.css">
 
-    .container {
-    background-color: #ffffff; /* White background */
-    width: 100%;
-    max-width: 850px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(1, 0, 0, 0.5); /* Shadow effect */
-    border-radius: 30px; /* Rounded corners for the container */
-    margin-top: 60px;  /* Adds space from the top */
-    margin-bottom: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align the text to the left */
-    scroll-behavior: smooth;
-}
-    nav {
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
-      margin-bottom: 20px;
-    }
-
-    nav {
-  display: flex;
-  justify-content: flex-start; /* Aligns the nav links to the right */
-  align-items: left; /* Centers the content vertically */
-  background-color: #dcdada; /* Light background for the box */
-  border: 1px solid #000000; /* Border color matches the theme */
-  border-radius: 10px; /* Rounded corners for the box */
-  padding: 10px 40px; /* Inner spacing */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
-  width: fit-content; /* Shrinks the nav box to fit content */
-  margin-left: auto; /* Pushes the nav to the right */
-}
-
-nav a {
-  text-decoration: none;
-  color: #000000; /* Link color */
-  padding: 10px; /* Spacing inside each link */
-  
-}
-
-nav a:hover {
-  text-decoration: underline; /* Hover effect */
-}
-
-    header img {
-      width: 250px;
-      height: 250px;
-      margin-right: 20px;
-      margin-top: -50px;
-      border-radius: 100%;
-    }
-
-    header div {
-      text-align: left;
-    }
-
-    h1 {
-      font-size: 1em;
-      margin: 0;
-      color: #333;
-    }
-
-    h2 {
-      font-size: 1.2em;
-      color: #555;
-      margin-top: 5px;
-    }
-
-    .bio, section {
-      margin-top: 20px;
-    }
-
-    section {
-      padding: 20px 0;
-    }
-
-    .contact-info a {
-      color: #008cba;
-      text-decoration: none;
-    }
-
-    /* Smooth scrolling */ 
-    html {
-      scroll-behavior: smooth;
-    }
-
-      /* Shining Text */
-.big-name {
-  font-size: 2.2em; 
-  font-weight: bold;
-  text-align: center; 
-  color: #000000; 
-  margin-top: 20px; 
-  margin-top: -10px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.name-container {
-  display: flex;
-  justify-content: center; /* Centers the name horizontally */
-}
-
-.shining-container {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-    }
-
-    .shining-text {
-      font-size: 1.1em;
-      font-weight: bold;
-      color: #292828;
-      letter-spacing: 2.5px;
-      position: relative;
-      text-align: right;
-      margin-bottom: 15px;
-      margin-top: 5px;
-      overflow: hidden;
-        /* Add text stroke */
-  -webkit-text-stroke: 0.5px rgb(0, 0, 0); 
-
-    }
-
-    .shining-text::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-      animation: shineEffect 3s infinite ease-in-out;
-    }
-
-    .shining-border {
-      padding: 15px 30px;
-      font-size: 1.5em;
-      font-weight: bold;
-      color: #fff;
-      text-align: right;
-      border: 3px solid #fff;
-      border-radius: 10px;
-      margin-top: 10px;
-
-    }
-
-
-    /* Animation for shine effect */
-    @keyframes shineEffect {
-      0% {
-        left: -100%;
-      }
-      50% {
-        left: 100%;
-      }
-      100% {
-        left: 100%;
-      }
-    }
-
-
-.research-interest-label {
-  font-size: 1em;
-  margin-left: 530px; 
-  margin-top: -110px;
-  color: #000000;
-  text-align: right;
-}
-a {
-    color: rgb(97, 97, 97); 
-    text-decoration: none; 
-    margin-right: 0px; 
-    font-size: 1em; 
-    margin-left: 0px;
-  }
-
-  a:hover {
-    color: rgb(0, 0, 0); 
-  }
-
-  </style>
 </head>
 <body>
+<script>
+        // Detect scroll event
+        window.onscroll = function() {
+            var navbar = document.querySelector(".navbar");
+            
+            // Check if the page has scrolled down
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                navbar.classList.add("shrink");  // Add shrink class
+            } else {
+                navbar.classList.remove("shrink");  // Remove shrink class
+            }
+        };
+</script>
 
-  <div class="container">
-    <nav>
-      <a href="index.html#resume">Resume</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-      
-    </nav>
-
-    <header>
-      <img src="IMG_2227_Original.jpg" alt="Tahsina Moiukh">
-      
-      <div class="research-interest-label">
-        Research Interests <i class="fas fa-arrow-down"></i>
-        <div class="shining-text">Natural Language Processing</div>
-        <div class="shining-text">Artificial Intelligence</div>
-        <div class="shining-text">Machine Learning</div>
-    </div>
-    </header>
-    <div class="name-container">
-        <h1 class="big-name" >Tahsina Moiukh</h1>
-        <div>
-            <a href="mailto:tahsina.moiukh@g.bracu.ac.bd" target="_blank">
-                <i class="fas fa-envelope"></i>
-            </a>
-              <a href="https://github.com/moiukht" target="_blank">
-                <i class="fab fa-github"></i>
-              </a> 
-            <a href="https://www.linkedin.com/in/tahsina-m-8947472a4/" target="_blank">
-                <i class="fab fa-linkedin"></i>
-              </a> 
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-brand dm-serif-text-regular">Tahsina Moiukh</div>
+            <!-- Toggler button for mobile devices -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar contents (links) -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#resume">RESUME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#projects">PROJECTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#contact">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="https://drive.google.com/file/d/1Q4qYyrcbAlkVhoUjIltAtu2ODYjGMnlh/view?usp=sharing">CV</a>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </nav>
+    
+
+  <main class="container my-5" >
+    <div class="row">
+      <!-- Left Section -->
+      <div class="col-md-4 text-center">
+        <img src="IMG_2227_Original.jpg" alt="Profile Picture" class="img-fluid rounded shadow-sm">
+      </div>
+      
+      <!-- Right Section -->
+      <div style="align-self: flex-start; margin-top: -20px;" class="col-md-8">
+        <div class="research-interests-section">
+          <div class="research-interest-label" style="display: flex; align-items: center; gap: 10px; font-family: 'Courier New', Courier, monospace;">
+  <span>My Research Interests</span>
+  <i class="fas fa-arrow-right"></i>
+</div>
+          
+          <div class="venn-container">
+            
+            <!-- Research area circles -->
+           
+            
+            <div class="circle ai" style="top: 0;">
+                <span class="seesaw">Artificial<br>Intelligence</span>
+            </div>
+            
+            
+            <div class="circle ml" style="top: 30;">
+                <span class="seesaw">Machine<br>Learning</span>
+            </div>
+
+            <div class="circle nlp" style="top: 0;">
+                <span class="seesaw">Natural Language<br>Processing</span>
+            </div>
+               <div class="circle hci" style="top: 30;">
+                
+                <span class="seesaw">Human-Computer<br>Interaction</span>
+            </div>
+    
+
+
+
+          
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+        <h3 style="font-family:Arial, Helvetica, sans-serif 1em; margin-top: 20px;">About Me</h3>
+        <p style="margin-top: 0px;"> I am Moiukh, a Research Engineer at
+          <a href="https://iriic.uiu.ac.bd/" 
+          style="color: rgb(3, 3, 170); text-decoration: none;">AIMS Lab, IRIIC, United International University</a>.
+         <br><br>
+        
+          I am currently seeking a position in a <b>research-oriented Master’s program in Computer Science</b> , 
+          where I can further develop my expertise under dedicated faculty mentorship. 
+          <br><br>
+          I previously graduated from the 
+<a href="https://www.bracu.ac.bd/academics/schools-and-departments/school-data-and-sciences/computer-science-and-engineering" 
+style="color: rgb(3, 3, 170); text-decoration: none;">
+            department of CSE, BRAC University </a>and also served as an undergraduate teaching assistant in the same department.
+          <!-- I  completed my B.Sc. in Computer Science and Engineering from 
+          <a href="https://www.bracu.ac.bd" style="color: rgb(3, 3, 170); text-decoration: none;">
+            BRAC University</a>, where I also served as a Student Tutor in the Department of CSE.
+             My research interests lie at the intersection of Natural Language Processing (NLP), Human-Computer Interaction,
+             Artificial Intelligence (AI), and Machine Learning (ML).  -->
+      </div>
     </div>
-<!-- BIO ABOUT ME -->
-    <section id="bio" class="bio" style=" margin: 20px; margin-bottom: -45px;">
-        <h3 style="font-size: 1.7em;" >About Me</h3>
-      <p>I'm Tahsina Moiukh, a recent graduate from the <a href= "https://cse.sds.bracu.ac.bd" 
-        style="color: rgb(3, 3, 170); text-decoration: none;">Department of CSE </a>at<a href="https://www.bracu.ac.bd" 
-        style="color: rgb(3, 3, 170); text-decoration: none;"> BRAC University</a>.
-       My research interests include Natural Language Processing (NLP), Artificial Intelligence (AI), 
-        and Machine Learning (ML). 
-    </section>
-<!-- RESUME -->
-    <section id="resume" style="margin: 20px;">
+    <!-- RESUME -->
+    <section id="resume" style="margin: 50px;">
         <h3 style="font-size: 2em;">My Resume</h3>
     <!-- WORK EXPERIENCE -->
         <h3 style="font-size: 1.5em; display: flex; align-items: center;">
             <i class="fas fa-briefcase" style="margin-right: 10px; color: #000000; text-shadow: 5px 5px 5px rgba(79, 75, 75, 0.5);"></i> 
             Work Experience
           </h3>
+
         <div style="border-left: 3px solid #6c757d; padding-left: 15px; margin-top: 20px;">
+
           <div style="margin-bottom: 30px; position: relative;">
             <div style="position: absolute; width: 10px; height: 10px; background-color: #6c757d; border-radius: 50%; left: -21.5px; top: 5px;"></div>
-            <h4 style="color: rgb(59, 59, 59);">Teaching Assistant</h4>
+            <h4 style="color: rgb(59, 59, 59);">Research Engineer</h4>
             <p>
-              Department of Computer Science and Engineering,<br>
+             Advanced Intelligent Multidisciplinary System Lab (AIMS Lab), IRIIC (Institute of Research, Innovation, Incubation & Commercialization) <br>
+             United International University<br>
+              <span style="color: #083768;">June 2025 — Present</span>
+              
+          </div>
+
+          <div style="margin-bottom: 30px; position: relative;">
+            <div style="position: absolute; width: 10px; height: 10px; background-color: #6c757d; border-radius: 50%; left: -21.5px; top: 5px;"></div>
+            <h4 style="color: rgb(59, 59, 59);">Undergraduate Teaching Assistant</h4>
+            <p>
+              Department of Computer Science and Engineering<br>
               BRAC University<br>
               <span style="color: #083768;">May 2024 — Jan 2025</span>
               
@@ -269,9 +165,9 @@ a {
       
           <div style="margin-bottom: 30px; position: relative;">
             <div style="position: absolute; width: 10px; height: 10px; background-color: #6c757d; border-radius: 50%; left: -21.5px; top: 5px;"></div>
-            <h4 style="color: rgb(59, 59, 59);">Teaching Assistant</h4>
+            <h4 style="color: rgb(59, 59, 59);">Undergraduate Teaching Assistant</h4>
             <p>
-              Department of Mathematics and Natural Sciences,<br>
+              Department of Mathematics and Natural Sciences<br>
               BRAC University<br>
               <span style="color: #083768;">October 2023 — May 2024</span>
               
@@ -329,24 +225,35 @@ the model’s shortcomings and potential areas for development. Currently, we ar
               <p>
                 Department of Computer Science and Engineering,<br>
                 BRAC University<br>
-                <span style="color: #083768;">2021 — 2025</span>
-                <p style="text-decoration-line: underline;">Noteable Courses:</p>
-                <p style="font-size: 0.9em;">
-                  <p style="font-size: 0.9em;">CSE440- Natural Language Processing</p>
-                  <p style="font-size: 0.9em;">CSE422- Artificial Intelligence</p>
-                  <p style="font-size: 0.9em;">CSE428- Image Processing</p>
-                  <p style="font-size: 0.9em;">STA201- Statistics and Probability</p>
-                  <p style="font-size: 0.9em;">CSE321- Operating Systems</p>
-                  <p style="font-size: 0.9em;">MAT216- Linear Algebra and Fourier Analysis</p>
-                  <p style="font-size: 0.9em;">CSE340- Computer Architecture</p>
-                </p>
+                <span style="color: #083768;"> 2021 — 2025</span>
+                <p style="text-decoration: underline;">Notable Courses:</p>
+                  <table style="font-size: 1em; border-collapse: collapse;">
+                    <tr>
+                      <td style="padding: 4px 8px;">CSE440 - Natural Language Processing</td>
+                      <td style="padding: 4px 8px;">CSE422 - Artificial Intelligence</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 4px 8px;">CSE428 - Image Processing</td>
+                      <td style="padding: 4px 8px;">STA201 - Statistics and Probability</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 4px 8px;">CSE321 - Operating Systems</td>
+                      <td style="padding: 4px 8px;">MAT216 - Linear Algebra and Fourier Analysis</td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 4px 8px;">CSE340 - Computer Architecture</td>
+                      <td style="padding: 4px 8px;">CSE421 - Computer Networks</td>
+                      <td></td>
+                    </tr>
+                  </table>
+
               </p>
             </div>
             </div>
 
     <!--Technical Skills -->
     <h3 style="font-size: 1.5em; display: flex; align-items: center;">
-        <i class="fas fa-graduation-cap" style="margin-right: 10px; color: #000000; text-shadow: 5px 5px 5px
+        <i class="fa fa-cogs" style="margin-right: 10px; color: #000000; text-shadow: 5px 5px 5px
          rgba(79, 75, 75, 0.5);"></i>
         Technical Skills
       </h3>
@@ -355,55 +262,92 @@ the model’s shortcomings and potential areas for development. Currently, we ar
       <div style="margin-bottom: 30px; position: relative;">
         <div style="position: absolute; width: 10px; height: 10px; background-color: #6c757d; border-radius: 50%; left: -21.5px; top: 5px;"></div>
         <h4 style="color: rgb(59, 59, 59);">Languages</h4>
-        <div> Python, Java, Javascript, C/C++, x86 Assembly, Bison/Flex, Bash, MySQL, LaTeX
+        <div> Python, Java, JavaScript, C/C++, x86 Assembly, Bison/Flex, Bash, SQL (MySQL)
         </div>
         
-      <div style="margin-bottom: 30px; position: relative;">
+      <div style=" position: relative;">
         <div style="position: absolute; width: 10px; height: 10px; background-color: #6c757d; border-radius: 50%; left: -21.5px; top: 5px;"></div>
-        <h4 style="color: rgb(59, 59, 59);">Frameworks</h4>
-        <div> PyTorch, Tensorflow, FastAPI, Flask, ReactJS, Node.js, Express
+        <h4 style="color: rgb(59, 59, 59);">Frameworks & Libraries</h4>
+        <div margin-bottom: 30px;> PyTorch, TensorFlow, ReactJS, Node.js, Express, scikit-learn, Pandas, Matplotlib, Seaborn, OpenGL
         </div>
       <div style="margin-bottom: 30px; position: relative;">
         <div style="position: absolute; width: 10px; height: 10px; background-color: #6c757d; border-radius: 50%; left: -21.5px; top: 5px;"></div>
-        <h4 style="color: rgb(59, 59, 59);">Libraries</h4>
-        <div>Sklearn, Pandas, Matplotlib, Seaborn, OpenGL, MySQL, MongoDB </div>
+        <h4 style="color: rgb(59, 59, 59);">Tools and Platforms</h4>
+        <div>Git, LaTeX, MongoDB </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-    </div>
-   
 
-  </div>
-  </div>
-  </div>
 
-   <!--Honors and Awards -->
+        <section id="projects">
+          <div class="projects-heading" >
    <h3 style="font-size: 1.5em; display: flex; align-items: center;">
-    <i class="fas fa-graduation-cap" style="margin-right: 10px; color: #000000; text-shadow: 5px 5px 5px
-     rgba(79, 75, 75, 0.5);"></i>
-    Honors and Awards
-  </h3>
-<div style="border-left: 3px solid #6c757d; padding-left: 15px; margin-top: 20px;">
-</h3>
-  <div style="margin-bottom: 30px; position: relative;">
-    <div style="position: absolute; width: 10px; height: 10px; background-color: #6c757d; border-radius: 50%; left: -21.5px; top: 5px;"></div>
-    <h4 style="color: rgb(59, 59, 59);">Dean's and Vice Chancellor’s list, BRAC University </h4>
-    <div> Recognized for outstanding academic excellence across multiple semesters.
+        <i class="fa fa-code" style="margin-right: 10px; color: #000000; text-shadow: 5px 5px 5px
+         rgba(79, 75, 75, 0.5);"></i>
+              Projects
+          </div>
+          <div>
+              <h3>Diet Planner with AI Integration</h3>
+              <p style=" margin-left: 720px; margin-top:-40px;"><a href="https://github.com/moiukht/Diet_Planner_471project" target="_blank" style="color: #1d73d4; font-size: 0.9em;"> View On GitHub </a>
+              </p>
+              <p>
+               Designed and developed a personalized diet planning system using the MERN stack. Implemented the application with a React-based frontend and a Node.js/Express backend, integrated with MongoDB for data storage. Incorporated AI technologies like GPT and Gemini to dynamically generate tailored meal plans based on user preferences, health goals, and dietary restrictions.
+              </p>
+            
+              <h3>Sentiment Analysis of IMDB Movie Reviews</h3>
+              <p style=" margin-left: 720px; margin-top:-40px;"><a href="https://github.com/moiukht/Sentiment-Analysis-of-IMDB-Movie-Reviews-RNN-LSTM_440project" target="_blank" style="color: #1d73d4; font-size: 0.9em;"> View On GitHub </a>
+              </p>
+              <p>
+                Conducted a sentiment analysis project on IMDB movie reviews, implementing various machine learning and deep learning approaches. Designed and evaluated shallow models, LSTM, and Bi-LSTM architectures to classify reviews as positive or negative. Focused on text preprocessing, feature extraction, and hyperparameter tuning to enhance model performance.
+              </p>
+            
+              <h3>Sports Image Classification System </h3>
+              <p style=" margin-left: 720px; margin-top:-40px;"><a href="https://github.com/moiukht/Sports_Detection_image-processing_428project" target="_blank" style="color: #1d73d4; font-size: 0.9em;"> View On GitHub </a>
+              </p>
+              <p>
+                Developed an image processing project to classify the type of sport being played based on input photos. Designed and implemented a deep learning model from scratch using convolutional neural networks (CNNs) to process and analyze images. Preprocessed the dataset, consisting of images representing various sports, to optimize training and evaluation. Achieved accurate classification by fine-tuning model architecture and hyperparameters.
+              </p>
+            
+              <h3>Pet Care Game for Kids</h3>
+                  <p style=" margin-left: 720px; margin-top:-40px;"><a href="https://github.com/moiukht/Pet_Caring_Game_423project" target="_blank" style="color: #1d73d4; font-size: 0.9em;"> View On GitHub </a>
+                  </p>
+                  <p>
+                Developed an interactive pet game using OpenGL, where users can engage with a virtual pet in a dynamic environment. Designed and implemented 2D and 3D graphics to represent pet interactions and environment changes. The game featured real-time user input handling, animation, and basic AI behavior for the pet.
+              </p>
+            </div>
+
     </div>
-    
-  <div style="margin-bottom: 30px; position: relative;">
-    <div style="position: absolute; width: 10px; height: 10px; background-color: #6c757d; border-radius: 50%; left: -21.5px; top: 5px;"></div>
-    <h4 style="color: rgb(59, 59, 59);">Merit Scholarship Recipient, BRAC University </h4>
-    <div>Awarded a partial merit-based scholarship in recognition of consistent academic excellence.
-    </div>
+ </div>
+
+    <section id="contact" class="container my-5">
+<div class="projects-heading" >
+   <h3 style="font-size: 1.5em; display: flex; align-items: center;">
+        <i class="fas fa-address-card" style="margin-right: 10px; color: #000000; text-shadow: 5px 5px 5px
+         rgba(79, 75, 75, 0.5);"></i>
+               Contact
+          </div>
+        
+
+      <li><strong>Email:</strong> <a href="mailto:moiukh29@gmail.com">moiukh29@gmail.com</a></li>
+      <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tahsina-moiukh" target="_blank">linkedin.com/in/tahsina-moiukh</a></li>
+      <li><strong>GitHub:</strong> <a href="https://github.com/moiukht" target="_blank">github.com/moiukht</a></li>
+  </div>
+</section>
 
 
-    </section>
 
-      <p style="margin-bottom: 0px; font-size: small; margin-left: 710px; color: #008cba;">
-        <a href="mailto:tahsina.moiukh@g.bracu.ac.bd" style="color: #008cba;">Email </a>
-        <a href="https://www.linkedin.com/in/tahsina-m-8947472a4/" style="color: #008cba;"> LinkedIn </a> 
-        <a href="https://github.com/moiukht" style="color: #008cba;"> GitHub</a></p>
+  </main>
 
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 Tahsina Moiukh</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
-
