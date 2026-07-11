@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tahsina Moiukh — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=NTR&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f2ea;
+      --bg2: #efe5d5;
+      --bg3: #e6d8c1;
+      --accent: #b5651d;
+      --accent2: #7c8a5e;
+      --text: #4a3f33;
+      --text-dim: #8c7c68;
+      --white: #2b2117;
+      --card-bg: #ffffff;
+      --border: rgba(181,101,29,0.18);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Sora', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 60px;
+      height: 70px;
+      background: rgba(247,242,234,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Fira Code', monospace;
+      color: var(--accent);
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-links a span {
+      color: var(--accent);
+      margin-right: 4px;
+      font-size: 0.75rem;
+    }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 10vw;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      align-items: center;
+      gap: 70px;
+      width: 100%;
+      padding-top: 70px;
+    }
+
+    .hero-greeting {
+      font-family: 'Fira Code', monospace;
+      color: var(--accent);
+      font-size: 0.5rem;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeSlideUp 0.6s forwards 0.3s;
+    }
+
+    .hero-name {
+      font-size: clamp(2.6rem, 5vw, 3rem);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeSlideUp 0.6s forwards 0.5s;
+    }
+
+    .hero-name .typewriter-wrap {
+      color: var(--accent);
+      display: inline-block;
+      min-width: 180px;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      background: var(--accent);
+      animation: blink 1s step-end infinite;
+      vertical-align: baseline;
+      margin-left: 2px;
+      height: 0.85em;
+    }
+
+    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+    .hero-sub {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      max-width: 520px;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeSlideUp 0.6s forwards 0.7s;
+      line-height: 1.85;
+    }
+
+    .hero-sub strong { color: var(--text); }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 24px;
+      justify-content: flex-start;
+      padding-top: 4px;
+    }
+
+    /* ── RESEARCH INTERESTS ── */
+    .research-interests {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      max-width: 100%;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      box-shadow: 0 10px 30px rgba(139,94,52,0.08);
+      opacity: 0;
+      animation: fadeSlideUp 0.6s forwards 0.85s;
+    }
+    .ri-header {
+      background: #ede0c8;
+      padding: 9px 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .ri-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .ri-dot.red    { background: #e0776d; }
+    .ri-dot.yellow { background: #e8b854; }
+    .ri-dot.green  { background: #7fa86a; }
+    .ri-title { margin-left: 8px; color: var(--text-dim); font-size: 0.72rem; }
+    .ri-body { background: #fffaf0; padding: 16px 20px; line-height: 2; color: var(--text); }
+    .ri-comment { color: #ab9a83; }
+    .ri-keyword { color: var(--accent2); }
+    .ri-op      { color: var(--text-dim); }
+    .ri-string  { color: #6f8f4e; }
+    .ri-tag {
+      display: inline-block;
+      font-size: 0.62rem;
+      padding: 1px 7px;
+      border-radius: 20px;
+      background: rgba(181,101,29,0.12);
+      color: var(--accent);
+      border: 1px solid rgba(181,101,29,0.3);
+      margin-left: 8px;
+      vertical-align: middle;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-cta {
+      margin-top: 38px;
+      display: flex;
+      gap: 16px;
+      opacity: 0;
+      animation: fadeSlideUp 0.6s forwards 0.9s;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.82rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+
+    .btn-primary {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: rgba(181,101,29,0.08);
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(181,101,29,0.15);
+    }
+
+    /* ── HERO PHOTO ── */
+    .hero-photo-wrap {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      opacity: 0;
+      animation: fadeSlideUp 0.7s forwards 0.6s;
+    }
+
+    .hero-photo-frame {
+      position: relative;
+      width: 100%;
+      height: 280px;
+    }
+
+    .hero-photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      transform: translate(14px, 14px);
+      z-index: 0;
+      opacity: 0.55;
+      transition: transform 0.3s;
+    }
+
+    .hero-photo-frame:hover::before { transform: translate(8px, 8px); }
+
+    .hero-photo-frame img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center 20%;
+      border-radius: 12px;
+      border: 2px solid var(--accent);
+      filter: saturate(95%);
+      transition: filter 0.3s;
+    }
+
+    .hero-photo-frame:hover img { filter: saturate(115%); }
+
+    /* placeholder if no image */
+    .photo-placeholder {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      border: 2px solid var(--accent);
+      background: var(--card-bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dim);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      gap: 12px;
+    }
+
+    .photo-placeholder svg { width: 64px; height: 64px; opacity: 0.4; }
+
+    /* ── SECTION COMMON ── */
+    section {
+      padding: 100px 10vw;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .section-title h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .section-title .prefix {
+      font-family: 'Fira Code', monospace;
+      color: var(--accent);
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+
+    .section-title::after { content: none; }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--bg2); }
+
+    .exp-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0;
+    }
+
+    .exp-tabs {
+      display: flex;
+      flex-direction: column;
+      border-left: 2px solid var(--border);
+    }
+
+    .exp-tab {
+      padding: 14px 20px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 1px;
+      border-left: 2px solid transparent;
+      margin-left: -2px;
+    }
+
+    .exp-tab:hover { color: var(--accent); background: rgba(181,101,29,0.05); }
+
+    .exp-tab.active {
+      color: var(--accent);
+      border-left-color: var(--accent);
+      background: rgba(181,101,29,0.08);
+    }
+
+    .exp-panels { padding-left: 48px; }
+
+    .exp-panel { display: none; }
+    .exp-panel.active { display: block; animation: fadeIn 0.3s; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
+
+    .exp-panel h3 {
+      font-size: 1.2rem;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .exp-panel h3 .company { color: var(--accent); }
+
+    .exp-period {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin: 8px 0 20px;
+      letter-spacing: 1px;
+    }
+
+    .exp-bullets { list-style: none; }
+
+    .exp-bullets li {
+      position: relative;
+      padding-left: 20px;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    .exp-bullets li::before {
+      content: '▸';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 32px 36px;
+      transition: border-color 0.25s, transform 0.25s;
+      box-shadow: 0 4px 18px rgba(139,94,52,0.06);
+    }
+
+    .edu-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .edu-card h3 { color: var(--white); font-size: 1.1rem; margin-bottom: 6px; }
+
+    .edu-card .institution {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .edu-card .meta {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+
+    .edu-card p { color: var(--text-dim); font-size: 0.93rem; }
+
+    /* ── PUBLICATIONS ── */
+    #publications { background: var(--bg); }
+
+    .pub-list { display: flex; flex-direction: column; gap: 24px; }
+
+    .pub-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 32px;
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(139,94,52,0.06);
+    }
+
+    .pub-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .pub-card:hover { border-color: rgba(181,101,29,0.35); transform: translateX(4px); }
+    .pub-card:hover::before { opacity: 1; }
+
+    .pub-badge {
+      display: inline-block;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.7rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .pub-badge.review { border-color: #c17f42; color: #a8621f; }
+
+    .pub-card h3 { font-size: 1rem; color: var(--white); margin-bottom: 8px; line-height: 1.5; }
+
+    .pub-card .authors { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 8px; }
+
+    .pub-card .venue { font-family: 'Fira Code', monospace; font-size: 0.78rem; color: var(--accent2); }
+
+    .pub-card a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-family: 'Fira Code', monospace;
+      margin-top: 8px;
+      display: inline-block;
+    }
+
+    .pub-card a:hover { text-decoration: underline; }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--bg2); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-cat {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 26px;
+      transition: border-color 0.25s;
+      box-shadow: 0 4px 18px rgba(139,94,52,0.06);
+    }
+
+    .skill-cat:hover { border-color: rgba(181,101,29,0.35); }
+
+    .skill-cat h4 {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .skill-tag {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      border-radius: 4px;
+      background: rgba(181,101,29,0.08);
+      color: var(--text);
+      border: 1px solid rgba(181,101,29,0.18);
+      transition: all 0.2s;
+    }
+
+    .skill-tag:hover { background: rgba(181,101,29,0.16); color: var(--accent); }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--bg); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.25s, transform 0.25s;
+      cursor: default;
+      box-shadow: 0 4px 18px rgba(139,94,52,0.06);
+    }
+
+    .project-card:hover {
+      border-color: rgba(181,101,29,0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(139,94,52,0.14);
+    }
+
+    .project-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+
+    .folder-icon { color: var(--accent); font-size: 1.6rem; }
+
+    .project-card h3 { font-size: 1rem; color: var(--white); font-weight: 600; margin-bottom: 10px; }
+
+    .project-card p { font-size: 0.88rem; color: var(--text-dim); flex: 1; line-height: 1.65; }
+
+    .project-tech {
+      margin-top: 18px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .project-tech span {
+      background: rgba(181,101,29,0.06);
+      padding: 2px 8px;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+    }
+
+    /* ── CONTACT ── */
+    #contact { text-align: center; padding: 100px 10vw 140px; background: var(--bg2); }
+
+    .contact-label {
+      font-family: 'Fira Code', monospace;
+      color: var(--accent);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    #contact h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--white); margin-bottom: 20px; }
+
+    #contact p { color: var(--text-dim); max-width: 520px; margin: 0 auto 40px; line-height: 1.8; }
+
+    .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+
+
+    /* ── BG DOTS ── */
+    .bg-dots {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: radial-gradient(circle, rgba(181,101,29,0.10) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { gap: 16px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-right { order: -1; }
+      .hero-photo-frame { height: 260px; }
+      section { padding: 70px 6vw; }
+      .exp-layout { grid-template-columns: 1fr; }
+      .exp-tabs { flex-direction: row; border-left: none; border-bottom: 2px solid var(--border); overflow-x: auto; }
+      .exp-tab { border-left: none; border-bottom: 2px solid transparent; margin-left: 0; margin-bottom: -2px; white-space: nowrap; }
+      .exp-tab.active { border-left: none; border-bottom-color: var(--accent); }
+      .exp-panels { padding-left: 0; padding-top: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-dots"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">TM</div>
+    <ul class="nav-links">
+      <li><a href="#home"><span>⤷</span>Home</a></li>
+      <li><a href="#experience"><span>⤷</span>Experience</a></li>
+      <li><a href="#education"><span>⤷</span>Education</a></li>
+      <li><a href="#publications"><span>⤷</span>Publications</a></li>
+      <li><a href="#skills"><span>⤷</span>Skills</a></li>
+      <li><a href="#projects"><span>⤷</span>Projects</a></li>
+      <li><a href="#contact"><span>⤷</span>Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-grid">
+      <div class="hero-text">
+        
+        <h1 class="hero-name">
+          Hi, I'm <span class="typewriter-wrap"><span id="typewriter"></span><span class="cursor"></span></span>
+        </h1>
+        <p class="hero-sub">
+          <p class="hero-sub">
+           an incoming M.Sc. student in Computer Science at the University of Saskatchewan, starting this September. I did my undergrad from BRAC University in Computer Science and Engineering.
+          </p>
+          <div class="hero-cta">
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-frame">
+            <img src="photo.jpg" alt="Tahsina Moiukh" />
+          </div>
+        </div>
+
+        <div class="research-interests">
+          <div class="ri-header"> 
+            <span class="ri-dot red"></span><span class="ri-dot yellow"></span><span class="ri-dot green"></span>
+            <span class="ri-title">research_interests.py</span>
+          </div>
+          <div class="ri-body">
+            
+            <span class="ri-keyword">interests</span> <span class="ri-op">=</span> [<br>
+            &nbsp;&nbsp;<span class="ri-string">"Human-Computer Interaction"</span>,<br>
+            &nbsp;&nbsp;<span class="ri-string">"Extended Reality"</span>,<br>
+            &nbsp;&nbsp;<span class="ri-string">"Natural Language Processing"</span>,<br>
+            &nbsp;&nbsp;<span class="ri-string">"Computer Vision"</span>,<br>
+            &nbsp;&nbsp;<span class="ri-string">"Machine Learning"</span>,<br>
+            ]
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-title">
+      <h2>experience</h2>
+    </div>
+    <div class="exp-layout">
+      <div class="exp-tabs">
+        <div class="exp-tab active" onclick="switchTab('aims')">AIMS LAB</div>
+        <div class="exp-tab" onclick="switchTab('ta')">BRAC UNIV TA</div>
+      </div>
+      <div class="exp-panels">
+        <div class="exp-panel active" id="panel-aims">
+          <h3>Research Engineer @ <span class="company">AIMS Lab, IRIIC</span></h3>
+          <p class="exp-period">JUNE 2025 – CURRENT · United International University, Dhaka</p>
+          <ul class="exp-bullets">
+            <li>Worked on the design and development of an AI-assisted, PECS-based communication platform to support children with autism.</li>
+            <li>Contributed to the platform's long-term vision by developing its business strategy, which received a BDT 50,000 grant through the University Innovation Hub Program (UIHP).</li>
+            <li>Explored future research directions involving AI-powered speech-attempt detection and immersive AR/VR experiences for assistive therapy.</li></ul>
+        </div>
+        <div class="exp-panel" id="panel-ta">
+          <h3>Undergraduate Teaching Assistant @ <span class="company">BRAC University</span></h3>
+          <p class="exp-period">OCT 2023 – JAN 2025 · Dhaka, Bangladesh</p>
+          <ul class="exp-bullets">
+            <li>Assisted with CSE221 - Algorithms (Department of Computer Science and Engineering), helping students understand algorithmic design, complexity analysis, and problem-solving.</li>
+            <li>Supported STA201 - Elements of Statistics and Probability(Department of Mathematics and Natural Sciences), helping students understand course topics and grading assessments.</li>
+            <li>Mentored students through coursework, held office hours, and contributed to the learning environment.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-title">
+      <h2>education</h2>
+    </div>
+    <div class="edu-card">
+      <div class="institution">BRAC University</div>
+      <h3>B.Sc. in Computer Science and Engineering</h3>
+      <p class="meta">2021 – 2025 &nbsp;·&nbsp; Dhaka, Bangladesh &nbsp;&nbsp; </p>
+      <p>Recognized for outstanding academic excellence on the Dean's and Vice Chancellor's List across multiple semesters. <br/>
+        Recipient of the Merit Scholarship for consistent academic achievement.</div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="section-title">
+      <h2>publications</h2>
+    </div>
+    <div class="pub-list">
+      <div class="pub-card">
+        <div class="pub-badge review">Under Review</div>
+        <h3>Viability Assessment of Bolte Chai+: An AAC Support for Verbally Challenged Children with ASD in Developing Countries</h3>
+        <p class="authors">Tahsina Moiukh, Farhana Sarker, Faed Ahmed Arnob, MD Omar Khaium, Maahir Labib Khondaker, Ashraful Islam, & Khondaker A. Mamun</p>
+        <p class="venue">Under review</p>
+        
+      </div>
+      <div class="pub-card">
+        <div class="pub-badge">arXiv Preprint</div>
+        <h3>Bridging Human and Model Perspectives: A Comparative Analysis of Political Bias Detection in News Media Using Large Language Models</h3>
+        <p class="authors">Shreya Adrita Banik, Niaz Nafi Rahman, Tahsina Moiukh, & Farig Sadeque</p>
+        <p class="venue">arXiv · doi: 10.48550/arXiv.2511.14606</p>
+        <a href="https://doi.org/10.48550/arXiv.2511.14606" target="_blank">→ View on arXiv</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-title">
+      <h2>technical skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-cat">
+        <h4>Languages</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">C/C++</span>
+          <span class="skill-tag">x86 Assembly</span>
+          <span class="skill-tag">Bash</span>
+          <span class="skill-tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>Frameworks & Libraries</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">scikit-learn</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">Matplotlib</span>
+          <span class="skill-tag">Seaborn</span>
+          <span class="skill-tag">React.js</span>
+          <span class="skill-tag">Express.js</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>Technologies</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">OpenGL</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">LaTeX</span>
+          <span class="skill-tag">Bison/Flex</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>Databases</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">MongoDB</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-title">
+      <h2>projects</h2>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-top"><span class="folder-icon">🥦</span></div>
+        <h3>Diet Planner with AI Integration</h3>
+        <p>Personalized diet planning system using the MERN stack. Integrated GPT and Gemini to dynamically generate tailored meal plans based on user preferences, health goals, and dietary restrictions.</p>
+        <div class="project-tech">
+          <span>React.js</span><span>Node.js</span><span>MongoDB</span><span>Express</span><span>TensorFlow</span><span>GPT</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top"><span class="folder-icon">😐</span></div>
+        <h3>Sentiment Analysis of IMDB Movie Reviews</h3>
+        <p>Implemented various ML and deep learning approaches including shallow models, LSTM, and Bi-LSTM architectures for sentiment classification of movie reviews.</p>
+        <div class="project-tech">
+          <span>Python</span><span>TensorFlow</span><span>Keras</span><span>LSTM</span><span>NLP</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top"><span class="folder-icon">🎾</span></div>
+        <h3>Sports Image Classification System</h3>
+        <p>Deep learning model built from scratch using CNNs to classify the type of sport in input images. Focused on preprocessing, feature extraction, and hyperparameter tuning.</p>
+        <div class="project-tech">
+          <span>Python</span><span>TensorFlow</span><span>OpenCV</span><span>CNN</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top"><span class="folder-icon">🍽️</span></div>
+        <h3>Restaurant Chatbot</h3>
+        <p>Backend system for a restaurant chatbot enabling intelligent responses by integrating NLP techniques with database queries for dynamic customer interaction.</p>
+        <div class="project-tech">
+          <span>FastAPI</span><span>MongoDB</span><span>NLP</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top"><span class="folder-icon">🐈</span></div>
+        <h3>Pet Game for Kids</h3>
+        <p>2D interactive game for children featuring virtual pets, built using OpenGL for graphical rendering and animation with engaging, child-friendly gameplay mechanics.</p>
+        <div class="project-tech">
+          <span>OpenGL</span><span>C++</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top"><span class="folder-icon">🐱</span></div>
+        <h3>Automated Pet Feeding System</h3>
+        <p>Smart automated pet feeding system using Arduino and sensor-based technology with programmable feeding schedules, real-time monitoring, and operational fail-safes.</p>
+        <div class="project-tech">
+          <span>Arduino</span><span>Robotics</span><span>Sensors</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    
+    <h2>Get In Touch</h2>
+    <div class="contact-links">
+      <a href="mailto:moiukh29@gmail.com" class="btn btn-primary">✉ moiukh29@gmail.com</a>
+      <a href="https://www.linkedin.com/in/tahsina-moiukh/" target="_blank" class="btn btn-primary">LinkedIn</a>
+      <a href="https://github.com/moiukht" target="_blank" class="btn btn-primary">GitHub</a>
+    </div>
+  </section>
+
+
+
+  <script>
+    // ── TYPEWRITER ──
+    const words = ['Moiukh,'];
+    let wi = 0, ci = 0, deleting = false;
+    const el = document.getElementById('typewriter');
+
+    function type() {
+      const word = words[wi];
+      if (!deleting) {
+        el.textContent = word.slice(0, ++ci);
+        if (ci === word.length) { return; }
+      } else {
+        el.textContent = word.slice(0, --ci);
+        if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
+      }
+      setTimeout(type, deleting ? 60 : 90);
+    }
+    setTimeout(type, 900);
+
+    // ── TAB SWITCHER ──
+    function switchTab(id) {
+      document.querySelectorAll('.exp-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.exp-panel').forEach(p => p.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      document.getElementById('panel-' + id).classList.add('active');
+    }
+
+    // ── SCROLL REVEAL ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.edu-card, .pub-card, .project-card, .skill-cat').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(28px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
